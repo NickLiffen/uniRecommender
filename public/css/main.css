@@ -1,0 +1,49 @@
+
+body {
+  word-wrap:break-word;
+}
+section {
+  padding: 1em;
+  padding-right: 2em;
+  color: black;
+}
+p {
+  padding-bottom: 10px;
+}
+.alignLeft{
+  float:left;
+}
+.alrighRight{
+  float:right;
+  padding-right:150px;
+}
+
+/* Padding Quries
+------------------------------------------*/
+.paddingTop{
+  padding-top: 150px;
+}
+.paddingBottom{
+  padding-bottom: 150px;
+}
+.paddingRight{
+  padding-right: 150px;
+}
+.paddingLeft{
+  padding-left: 150px;
+}
+
+/* Visibility Quries
+------------------------------------------*/
+.hideAddStudentForm{
+  display: none;
+}
+.hideViewStudentList{
+  display: none;
+}
+.showAddStudentForm{
+  display: block;
+}
+.showViewStudentList{
+  display: block;
+}
