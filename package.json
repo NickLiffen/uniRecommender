@@ -1,0 +1,39 @@
+{
+  "name": "UniReccommender",
+  "version": "0.1.0",
+  "description": "A University Reccommdner System for Students looking to go to Uni",
+  "main": "app/main.js",
+  "scripts": {
+    "start": "nodemon app.js || node app.js",
+    "test": "npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NickLiffen/uniRecommender"
+  },
+  "author": "Nick Liffen <nickliffen@hotmail.com",
+  "bugs": {
+    "url": "https://github.com/NickLiffen/uniRecommender/issues"
+  },
+  "homepage": "https://github.com/NickLiffen/uniRecommender",
+  "dependencies": {
+    "babel": "^6.3.26",
+    "babel-core": "^6.1.21",
+    "babel-plugin-syntax-jsx": "^6.3.13",
+    "babel-preset-es2015": "^6.3.13",
+    "bcrypt-nodejs": "latest",
+    "body-parser": "~1.0.0",
+    "connect-flash": "~0.1.1",
+    "cookie-parser": "~1.0.0",
+    "dotenv": "^2.0.0",
+    "ejs": "~0.8.5",
+    "express": "~4.0.0",
+    "express-session": "~1.0.0",
+    "method-override": "~1.0.0",
+    "morgan": "~1.0.0",
+    "neo4j": "^2.0.0-RC2",
+    "request": "^2.65.0"
+  },
+  "license": "BSD-3-Clause",
+  "engine": "node >= 4.0.0"
+}
