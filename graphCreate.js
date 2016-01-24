@@ -22,8 +22,8 @@ CREATE (Kent:University {title:'Kent University'})
 CREATE (London:University {title:'London University'})
 
 //Creating Univerity Speciality
-CREATE (Sporty:Speciality {title:'Sporty Univerity'})
-CREATE (Acadmeic:Speciality {title:'Acadmeic Univerity'})
+CREATE (Sporty:Speciality {title:'Sporty University'})
+CREATE (Acadmeic:Speciality {title:'Acadmeic University'})
 
 //Creating Locations
 CREATE (South:Region {title:'South England'})
@@ -488,6 +488,7 @@ CREATE (ConorHwewalsey:Person {name:'Conor Halsey'})
 CREATE (JackCewewrozier:Person {name:'Jack Crozier'})
 CREATE (LeonPewewointon:Person {name:'Leon Pointon'})
 CREATE (DaveeweClarke:Person {name:'Dave Clarke'})
+CREATE (APIuser:Person {name:'API User'})
 CREATE
   (SamewJones)-[:WENT_TO]->(London),
   (ConorHwewalsey)-[:WENT_TO]->(London),
@@ -519,23 +520,23 @@ MATCH (jack {name: "H Knowles"}) RETURN jack
 MATCH (tom:Person {name: "T Vardy"})-[:WENT_TO]->(TUniversity) RETURN tom,TUniversity
 
 //Who went to a Sporty university?
-MATCH (sportUni:Speciality {title: "Sporty Univerity"})-[:SPECIALISES_IN]-(uni) RETURN sportUni, uni
+MATCH (sportUni:Speciality {title: "Sporty University"})-[:SPECIALISES_IN]-(uni) RETURN sportUni, uni
 
 //People related to Portsmouth university
 MATCH (people:Person)-[relatedTo]-(:University {title: "Portsmouth University"}) RETURN people.name, Type(relatedTo), relatedTo
 
 //Reccommend a university to someone who wants to go to a southen university.
-MATCH (sportUni:Speciality {title: "Sporty Univerity"})-[:SPECIALISES_IN]-(uni),(uni)-[:IS_LOCATED_IN_THE]-(locality:Region{title:'East England'}) RETURN sportUni, uni, locality
+MATCH (sportUni:Speciality {title: "Sporty University"})-[:SPECIALISES_IN]-(uni),(uni)-[:IS_LOCATED_IN_THE]-(locality:Region{title:'East England'}) RETURN sportUni, uni, locality
 
 // THIS WILL DELETE Everything
 MATCH (n) DETACH DELETE n
 
 //This Reccommends a University to someone who wants to go to a southen university (+brings back information about LIKES & DISLIKES)
-MATCH (sportUni:Speciality {title: "Sporty Univerity"})-[:SPECIALISES_IN]-(uni)-[r]-(),
+MATCH (sportUni:Speciality {title: "Sporty University"})-[:SPECIALISES_IN]-(uni)-[r]-(),
   (uni)-[:IS_LOCATED_IN_THE]-(locality:Region{title:'East England'})
     RETURN sportUni, uni, locality, type(r), count(*)
 
 //This Reccommends a University to someone who wants to go to a southen university, only bring back likes
-MATCH (sportUni:Speciality {title: "Sporty Univerity"})-[:SPECIALISES_IN]-(uni)-[:LIKES]-(),
+MATCH (sportUni:Speciality {title: "Sporty University"})-[:SPECIALISES_IN]-(uni)-[:LIKES]-(),
   (uni)-[:IS_LOCATED_IN_THE]-(locality:Region{title:'East England'})
     RETURN sportUni, uni, locality, count(*) AS Likes ORDER BY Likes DESC LIMIT 1

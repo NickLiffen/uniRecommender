@@ -8,7 +8,7 @@ module.exports = {
       return new Promise(function(resolve, reject) {
         console.log(info.specialityValue);
         console.log(info.locationValue);
-        const query = `
+        let query = `
         MATCH (sportUni:Speciality {title: "${info.specialityValue}"})-[:SPECIALISES_IN]-(uni)-[:LIKES]-(),
           (uni)-[:IS_LOCATED_IN_THE]-(locality:Region{title: "${info.locationValue}" })
             RETURN sportUni, uni, locality, count(*) AS Likes ORDER BY Likes DESC LIMIT 1
@@ -29,7 +29,23 @@ module.exports = {
               resolve(uniInfo);
             });
           });
+        },
+
+        insertReccommendation: function(info){
+          return new Promise(function(resolve, reject) {
+
+            let query = `MATCH (p:Person {name:'API User'}), (u:University {title: '${info.uniName}'}) CREATE (p)-[:${info.rating}]->(u)`;
+
+            console.log(query);
+
+            db.cypher({ query }, (err, results) => {
+              if (err) {
+                console.log(err.message.errors);
+                reject(err);
+              }
+
+              resolve(results);
+            });
+          });
         }
-
-
 };

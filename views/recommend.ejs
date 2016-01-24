@@ -1,0 +1,39 @@
+<% include header %>
+<h1>Recommend Univerity</h1>
+
+<form action="/update" id="insertReccommendation" method="post">
+<div class="form-group">
+  <label for="sel3">Please Select Univerity to Rate?</label>
+  <select class="form-control" id="sel3">
+    <option value ="Portsmouth University">Portsmouth</option>
+    <option value ="Southampton University">Southampton</option>
+    <option value ="Brighton University">Brighton</option>
+    <option value ="Bournmouth University">Bournmouth</option>
+    <option value ="Newcastle University">Newcastle</option>
+    <option value ="Manchester University">Manchester</option>
+    <option value ="Liverpool University">Liverpool</option>
+    <option value ="Edinborough University">Edinborough</option>
+    <option value ="Bristol University">Bristol</option>
+    <option value ="Cardiff University">Cardiff</option>
+    <option value ="Exeter University">Exeter</option>
+    <option value ="Cornwall University">Cornwall</option>
+    <option value ="Essex University">Essex</option>
+    <option value ="UEA University">UEA</option>
+    <option value ="Kent University">Kent</option>
+    <option value ="London University">London</option>
+  </select>
+  <label for="sel4">Like or Dislike?</label>
+  <select class="form-control" id="sel4">
+    <option value='LIKES'>Likes</option>
+    <option value='DISLIKES'>Dislikes</option>
+  </select>
+<br>
+  <button type="submit" id="insertReccommendation "class="btn btn-primary btn-lg" name="insertReccommendation">Insert Reccommendation!</button>
+</div>
+</form>
+
+
+<div id="reccommendation"></div>
+
+</body>
+</html>

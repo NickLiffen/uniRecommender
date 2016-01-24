@@ -14,9 +14,6 @@ const app  = express();
 //Port which the node server will run on.
 const port = process.env.PORT || 8080;
 
-//Load my Neo4J connection file
-let connection = require('./config/connection.js');
-
 // set up our express application
 app.use(morgan('dev')); // log every request to the console
 app.use(cookieParser()); // read cookies (needed for auth)
@@ -27,9 +24,8 @@ app.set('view engine', 'ejs'); // set up ejs for templating
 app.use(express.static(__dirname + '/public'));
 app.use('/vendor', express.static(__dirname + '/bower_components'));
 
-
 //Passing our Passport Information and Application Information to our routes
-require('./app/routes.js')(app, connection);
+require('./app/routes.js')(app);
 
 app.listen(port);
 console.log('Server connection established');

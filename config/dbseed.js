@@ -23,8 +23,8 @@ CREATE (Kent:University {title:'Kent University'})
 CREATE (London:University {title:'London University'})
 
 //Creating Univerity Speciality
-CREATE (Sporty:Speciality {title:'Sporty Univerity'})
-CREATE (Acadmeic:Speciality {title:'Acadmeic Univerity'})
+CREATE (Sporty:Speciality {title:'Sporty University'})
+CREATE (Acadmeic:Speciality {title:'Acadmeic University'})
 
 //Creating Locations
 CREATE (South:Region {title:'South England'})
@@ -489,6 +489,7 @@ CREATE (ConorHwewalsey:Person {name:'Conor Halsey'})
 CREATE (JackCewewrozier:Person {name:'Jack Crozier'})
 CREATE (LeonPewewointon:Person {name:'Leon Pointon'})
 CREATE (DaveeweClarke:Person {name:'Dave Clarke'})
+CREATE (APIuser:Person {name:'API User'})
 CREATE
   (SamewJones)-[:WENT_TO]->(London),
   (ConorHwewalsey)-[:WENT_TO]->(London),
