@@ -8,6 +8,20 @@ module.exports = function(app, connection) {
       res.render('index.ejs'); // load the index.ejs file
   });
 
+  app.post('/update', function(req, res) {
+    databaseQuery.getReccommendation(req.body)
+      .then(function (data) {
+        console.log(data);
+          res.send(data);
+      })
+      .catch(function (e) {
+          res.status(500, {
+              error: e
+          });
+      });
+
+  });
+
   console.log(connection);
   console.log(databaseQuery);
 

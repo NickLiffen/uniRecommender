@@ -1,17 +1,24 @@
 <% include header %>
 <h1>Reccommmeneded Univerity Application</h1>
 <h2> Please select your inputs</h2>
+<form action="/update" id="getReccommendation" method="post">
 <div class="form-group">
   <label for="sel1">Please Select Univerity Location?</label>
   <select class="form-control" id="sel1">
-    <option>South</option>
-    <option>North</option>
-    <option>East</option>
-    <option>West</option>
+    <option value ="South England">South</option>
+    <option value ="North England">North</option>
+    <option value ="East England">East</option>
+    <option value ="West England">West</option>
   </select>
   <label for="sel1">Please Select Univerity Type?</label>
   <select class="form-control" id="sel2">
-    <option>Academic</option>
-    <option>Sport</option>
+    <option value='Acadmeic Univerity'>Academic</option>
+    <option value='Sporty Univerity'>Sport</option>
   </select>
+<br>
+  <button type="submit" id="getReccommendation "class="btn btn-primary btn-lg" name="getReccommendation">Primary</button>
 </div>
+</form>
+
+
+<div id="reccommendation"></div>
