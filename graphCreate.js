@@ -512,9 +512,6 @@ CREATE
 //Find Everything
 MATCH (n) RETURN n
 
-//Delete Everything
-MATCH (n) DETACH DELETE n
-
 //Find someone in the database called "Jack Crozier"
 MATCH (jack {name: "H Knowles"}) RETURN jack
 
@@ -529,3 +526,16 @@ MATCH (people:Person)-[relatedTo]-(:University {title: "Portsmouth University"})
 
 //Reccommend a university to someone who wants to go to a southen university.
 MATCH (sportUni:Speciality {title: "Sporty Univerity"})-[:SPECIALISES_IN]-(uni),(uni)-[:IS_LOCATED_IN_THE]-(locality:Region{title:'East England'}) RETURN sportUni, uni, locality
+
+// THIS WILL DELETE Everything
+MATCH (n) DETACH DELETE n
+
+//This Reccommends a University to someone who wants to go to a southen university (+brings back information about LIKES & DISLIKES)
+MATCH (sportUni:Speciality {title: "Sporty Univerity"})-[:SPECIALISES_IN]-(uni)-[r]-(),
+  (uni)-[:IS_LOCATED_IN_THE]-(locality:Region{title:'East England'})
+    RETURN sportUni, uni, locality, type(r), count(*)
+
+//This Reccommends a University to someone who wants to go to a southen university, only bring back likes
+MATCH (sportUni:Speciality {title: "Sporty Univerity"})-[:SPECIALISES_IN]-(uni)-[:LIKES]-(),
+  (uni)-[:IS_LOCATED_IN_THE]-(locality:Region{title:'East England'})
+    RETURN sportUni, uni, locality, count(*) AS Likes ORDER BY Likes DESC LIMIT 1
