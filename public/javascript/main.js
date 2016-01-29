@@ -24,13 +24,65 @@ $(document).ready(function() {
           dataType: 'JSON'
       }).done(function(response) {
 
-            let result = '';
+          let likesPercentage, starTotal, dislikesPercentage;
+          let result = '';
 
-            result+=`<div id='uni'>`;
-            result+=`Uni Name: ${response.uniName} `;
-            result+=`<span class='glyphicon glyphicon-thumbs-up'> ${response.uniLikes} `;
+          result+=`<div id='uni'>`;
+          result+=`Our Reccommendation is: <b>${response.uniName} </b>`;
 
-            $("#reccommendation").html(result);
+
+          $("#reccommendation").html(result);
+
+          //Get the Precentage of Total Likes by dividing likes by total responses
+          likesPercentage = (response.uniLikes / (response.uniLikes + response.uniDislikes)*100).toFixed(1);
+
+          dislikesPercentage = (response.uniDislikes / (response.uniDislikes + response.uniLikes)*100).toFixed(1);
+          //Finds the percentage of likes out of 5 due to the 5 star rating system.
+          starTotal = ((likesPercentage/100)*5).toFixed(1);
+
+          console.log(starTotal);
+
+          $("#input-id").rating({min:1, max:5, step:0.1, disabled: true, size:'sm'});
+          $('#input-id').rating('update', starTotal);
+
+          let likProgressInfo = '';
+          likProgressInfo+=`<div class='paddingTop'></div>`;
+          likProgressInfo+=`<div class="col-sm-4">`;
+          likProgressInfo+=`<p>Likes:</p>`;
+          likProgressInfo+=`</div>`;
+
+          likProgressInfo+=`<div class="col-sm-4">`;
+          likProgressInfo+=`<div class="progress">`;
+          likProgressInfo+=`<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="${likesPercentage}" aria-valuemin="0" aria-valuemax="100" style="width:${likesPercentage}%">`;
+          likProgressInfo+=`${likesPercentage}%`;
+          likProgressInfo+=`</div>`;
+          likProgressInfo+=`</div>`;
+          likProgressInfo+=`</div>`;
+
+          likProgressInfo+=`<div class="col-sm-4">`;
+          likProgressInfo+=`<p>${response.uniLikes}  <span class='glyphicon glyphicon-thumbs-up'></p>`;
+          likProgressInfo+=`</div>`;
+
+        $("#progressLikes").html(likProgressInfo);
+
+        let dislikProgressInfo = '';
+        dislikProgressInfo+=`<div class="col-sm-4">`;
+        dislikProgressInfo+=`<p>Dislikes:</p>`;
+        dislikProgressInfo+=`</div>`;
+
+        dislikProgressInfo+=`<div class="col-sm-4">`;
+        dislikProgressInfo+=`<div class="progress">`;
+        dislikProgressInfo+=`<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="${dislikesPercentage}" aria-valuemin="0" aria-valuemax="100" style="width:${dislikesPercentage}%">`;
+        dislikProgressInfo+=`${dislikesPercentage}%`;
+        dislikProgressInfo+=`</div>`;
+        dislikProgressInfo+=`</div>`;
+        dislikProgressInfo+=`</div>`;
+
+        dislikProgressInfo+=`<div class="col-sm-4">`;
+        dislikProgressInfo+=`<p>${response.uniDislikes}  <span class='glyphicon glyphicon-thumbs-down'></p>`;
+        dislikProgressInfo+=`</div>`;
+
+      $("#progressDislikes").html(dislikProgressInfo);
 
       });
   });
@@ -66,6 +118,4 @@ $(document).ready(function() {
     });
 
   });
-
-
 });

@@ -12,7 +12,7 @@ module.exports = {
         MATCH (uniType:Speciality {title: "${info.specialityValue}"})-[:SPECIALISES_IN]-(uni)-[:IS_LOCATED_IN_THE]-(locality:Region {title: "${info.locationValue}"}),
           (uni)-[likes:LIKES]-(), (uni)-[dislikes:DISLIKES]-()
             WITH uniType, locality, uni, likes, dislikes
-              RETURN uniType, locality, uni, count(DISTINCT likes) AS LIKES, count(DISTINCT dislikes) AS DISLIKES, count(DISTINCT likes) - count(DISTINCT dislikes) AS TOTAL LIMIT 1
+              RETURN uniType, locality, uni, count(DISTINCT likes) AS LIKES, count(DISTINCT dislikes) AS DISLIKES, count(DISTINCT likes) - count(DISTINCT dislikes) AS TOTAL
             `;
 
             db.cypher({ query }, (err, results) => {
@@ -21,14 +21,12 @@ module.exports = {
                 reject(err);
               }
 
-              let uniInfo = {
-                  uniName: results[0].uni.properties.title,
-                  uniLikes: results[0].LIKES,
-                  uniDislikes: results[0].DISLIKES,
-                  uniTotal: results[0].TOTAL,
-                  uniLocation: results[0].locality.properties.title,
-                  uniType: results[0].uniType.properties.title
-                };
+          let uniInfo = {
+              uniName: results[0].uni.properties.title,
+              uniLikes: results[0].Likes,
+              uniLocation: results[0].locality.properties.title,
+              uniType: results[0].sportUni.properties.title
+            };
               resolve(uniInfo);
             });
           });

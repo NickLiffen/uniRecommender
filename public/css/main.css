@@ -21,10 +21,10 @@ p {
 /* Padding Quries
 ------------------------------------------*/
 .paddingTop{
-  padding-top: 150px;
+  padding-top: 30px;
 }
 .paddingBottom{
-  padding-bottom: 150px;
+  padding-bottom: 15px;
 }
 .paddingRight{
   padding-right: 150px;
@@ -46,4 +46,15 @@ p {
 }
 .showViewStudentList{
   display: block;
+}
+
+
+.center {
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+}
+
+.centerText {
+  text-align: center;
 }

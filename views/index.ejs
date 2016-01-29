@@ -1,27 +1,41 @@
 <% include header %>
-<h1>Reccommmeneded Univerity Application</h1>
-<h2> Please select your inputs</h2>
+<div class='center'>
+<h1 class='centerText'>Reccommmeneded Univerity Application</h1>
+<h2 class='centerText'> Please select your inputs</h2>
 <form action="/update" id="getReccommendation" method="post">
 <div class="form-group">
+  <div class='centerText'>
   <label for="sel1">Please Select Univerity Location?</label>
+</div>
   <select class="form-control" id="sel1">
     <option value ="South England">South</option>
     <option value ="North England">North</option>
     <option value ="East England">East</option>
     <option value ="West England">West</option>
   </select>
-  <label for="sel1">Please Select Univerity Type?</label>
+  <div class='centerText'>
+  <label for="sel1" class='centerText'>Please Select Univerity Type?</label>
+</div>
   <select class="form-control" id="sel2">
     <option value='Acadmeic University'>Academic</option>
     <option value='Sporty University'>Sport</option>
   </select>
 <br>
+<div class='centerText'>
   <button type="submit" id="getReccommendation "class="btn btn-primary btn-lg" name="getReccommendation">Get Reccommendation!</button>
+</div>
 </div>
 </form>
 
-
+<div class='centerText'>
 <div id="reccommendation"></div>
+    <div class='paddingTop'></div>
+    <div id='input-id'></div>
+    <div id='progressLikes'></div>
+    <div class='paddingBottom'></div>
+    <div id='progressDislikes'></div>
+</div>
+</div>
 
 </body>
 </html>
