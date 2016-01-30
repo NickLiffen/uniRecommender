@@ -40,15 +40,18 @@ $(document).ready(function() {
           //Finds the percentage of likes out of 5 due to the 5 star rating system.
           starTotal = ((likesPercentage/100)*5).toFixed(1);
 
-          console.log(starTotal);
+          if(starTotal <= 0.5){
+            starTotal = 0.5;
+          }
 
           $("#input-id").rating({min:1, max:5, step:0.1, disabled: true, size:'sm'});
           $('#input-id').rating('update', starTotal);
+          $('#totalCount').html(response.uniDislikes + response.uniLikes + "  Total Reviews");
 
           let likProgressInfo = '';
           likProgressInfo+=`<div class='paddingTop'></div>`;
           likProgressInfo+=`<div class="col-sm-4">`;
-          likProgressInfo+=`<p>Likes:</p>`;
+          likProgressInfo+=`<p class='floatRight'>Likes:</p>`;
           likProgressInfo+=`</div>`;
 
           likProgressInfo+=`<div class="col-sm-4">`;
@@ -67,7 +70,7 @@ $(document).ready(function() {
 
         let dislikProgressInfo = '';
         dislikProgressInfo+=`<div class="col-sm-4">`;
-        dislikProgressInfo+=`<p>Dislikes:</p>`;
+        dislikProgressInfo+=`<p class='floatRight'>Dislikes: </p>`;
         dislikProgressInfo+=`</div>`;
 
         dislikProgressInfo+=`<div class="col-sm-4">`;

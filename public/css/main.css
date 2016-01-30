@@ -58,3 +58,21 @@ p {
 .centerText {
   text-align: center;
 }
+
+.floating-box {
+  width: 100%;
+}
+
+.star-rating{
+  display: inline-block;
+}
+
+#totalCount{
+  display: inline-block;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.floatRight{
+  float: right;
+}
