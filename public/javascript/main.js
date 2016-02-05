@@ -24,11 +24,13 @@ $(document).ready(function() {
           dataType: 'JSON'
       }).done(function(response) {
 
+          $(".hidden").attr('class', 'block');
+
           let likesPercentage, starTotal, dislikesPercentage;
           let result = '';
 
           result+=`<div id='uni'>`;
-          result+=`Our Reccommendation is: <b>${response.uniName} </b>`;
+          result+=`Our Recommendation is: <b>${response.uniName} </b>`;
 
 
           $("#reccommendation").html(result);
@@ -36,16 +38,24 @@ $(document).ready(function() {
           //Get the Precentage of Total Likes by dividing likes by total responses
           likesPercentage = (response.uniLikes / (response.uniLikes + response.uniDislikes)*100).toFixed(1);
 
+          console.log(likesPercentage);
+
           dislikesPercentage = (response.uniDislikes / (response.uniDislikes + response.uniLikes)*100).toFixed(1);
           //Finds the percentage of likes out of 5 due to the 5 star rating system.
+
+          console.log(dislikesPercentage);
+
+
           starTotal = ((likesPercentage/100)*5).toFixed(1);
 
-          if(starTotal <= 0.5){
+          console.log(starTotal);
+
+          if(starTotal <= 1.0){
             starTotal = 0.5;
           }
 
-          $("#input-id").rating({min:1, max:5, step:0.1, disabled: true, size:'sm'});
-          $('#input-id').rating('update', starTotal);
+          //$("#input-id").rating({min:1, max:5,  disabled: true, size:'sm'});
+          $('#input-2').rating('update', starTotal);
           $('#totalCount').html(response.uniDislikes + response.uniLikes + "  Total Reviews");
 
           let likProgressInfo = '';

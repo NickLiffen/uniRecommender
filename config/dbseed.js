@@ -46,7 +46,7 @@ CREATE
   (Cardiff)-[:SPECIALISES_IN]->(Sporty),
   (Exeter)-[:SPECIALISES_IN]->(Acadmeic),
   (Cornwall)-[:SPECIALISES_IN]->(Sporty),
-  (Exeter)-[:SPECIALISES_IN]->(Sporty),
+  (Essex)-[:SPECIALISES_IN]->(Sporty),
   (UEA)-[:SPECIALISES_IN]->(Acadmeic),
   (Kent)-[:SPECIALISES_IN]->(Sporty),
   (London)-[:SPECIALISES_IN]->(Acadmeic)
@@ -65,7 +65,7 @@ CREATE
   (Cardiff)-[:IS_LOCATED_IN_THE]->(West),
   (Exeter)-[:IS_LOCATED_IN_THE]->(West),
   (Cornwall)-[:IS_LOCATED_IN_THE]->(West),
-  (Exeter)-[:IS_LOCATED_IN_THE]->(East),
+  (Essex)-[:IS_LOCATED_IN_THE]->(East),
   (UEA)-[:IS_LOCATED_IN_THE]->(East),
   (Kent)-[:IS_LOCATED_IN_THE]->(East),
   (London)-[:IS_LOCATED_IN_THE]->(East)
@@ -451,7 +451,7 @@ CREATE
 
 CREATE
   (SJones)-[:DISLIKES]->(UEA),
-  (CHalsey)-[:DISLIKES]->(UEA),
+  (CHalsey)-[:LIKES]->(UEA),
   (JCrozier)-[:LIKES]->(UEA),
   (LPointon)-[:LIKES]->(UEA),
   (DClarke)-[:LIKES]->(UEA)
@@ -480,7 +480,7 @@ CREATE
   (SamJoness)-[:DISLIKES]->(Kent),
   (ConorHalseyy)-[:DISLIKES]->(Kent),
   (JackCrozierr)-[:LIKES]->(Kent),
-  (LeonPointonn)-[:DISLIKES]->(Kent),
+  (LeonPointonn)-[:LIKES]->(Kent),
   (DaveClarkee)-[:DISLIKES]->(Kent)
 
 //London Univerity

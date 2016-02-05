@@ -1,11 +1,11 @@
 <% include header %>
 <div class='center'>
-<h1 class='centerText'>Reccommmeneded Univerity Application</h1>
+<h1 class='centerText'>Recommender University Application</h1>
 <h2 class='centerText'> Please select your inputs</h2>
 <form action="/update" id="getReccommendation" method="post">
 <div class="form-group">
   <div class='centerText'>
-  <label for="sel1">Please Select Univerity Location?</label>
+  <label for="sel1">Please Select University Location?</label>
 </div>
   <select class="form-control" id="sel1">
     <option value ="South England">South</option>
@@ -14,7 +14,7 @@
     <option value ="West England">West</option>
   </select>
   <div class='centerText'>
-  <label for="sel1" class='centerText'>Please Select Univerity Type?</label>
+  <label for="sel1" class='centerText'>Please Select University Type?</label>
 </div>
   <select class="form-control" id="sel2">
     <option value='Acadmeic University'>Academic</option>
@@ -22,17 +22,19 @@
   </select>
 <br>
 <div class='centerText'>
-  <button type="submit" id="getReccommendation "class="btn btn-primary btn-lg" name="getReccommendation">Get Reccommendation!</button>
+  <button type="submit" id="getReccommendation "class="btn btn-primary btn-lg" name="getReccommendation">Get Recommendation!</button>
 </div>
 </div>
 </form>
+
+<div class='hidden'>
 
 <div class='centerText'>
 
 <div id="reccommendation"></div>
 
     <div class='floating-box'>
-      <div id='input-id'></div>
+      <input id="input-2" class="rating" data-min="0" data-max="5" data-step="0.1">
       <div id="totalCount"></div>
     </div>
 
@@ -40,6 +42,7 @@
     <div id='progressLikes'></div>
     <div class='paddingBottom'></div>
     <div id='progressDislikes'></div>
+</div>
 </div>
 </div>
 

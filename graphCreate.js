@@ -540,3 +540,14 @@ MATCH (sportUni:Speciality {title: "Sporty University"})-[:SPECIALISES_IN]-(uni)
 MATCH (sportUni:Speciality {title: "Sporty University"})-[:SPECIALISES_IN]-(uni)-[:LIKES]-(),
   (uni)-[:IS_LOCATED_IN_THE]-(locality:Region{title:'East England'})
     RETURN sportUni, uni, locality, count(*) AS Likes ORDER BY Likes DESC LIMIT 1
+
+
+    MATCH (locality:Region {title: "South England"})-[:IS_LOCATED_IN_THE]-(uni),
+    (uni)-[likes:LIKES]-(), (uni)-[dislikes:DISLIKES]-()
+    WITH uni, locality, likes, dislikes
+    WHERE dislikes < 5
+    RETURN locality, uni, likes, dislikes
+
+
+    MATCH (uni:University {title: "Portsmouth University"})
+    SET uni.name = 'Portsmouth University'

@@ -76,3 +76,10 @@ p {
 .floatRight{
   float: right;
 }
+
+.hidden {
+  display: none;
+}
+.show {
+  display: block;
+}
