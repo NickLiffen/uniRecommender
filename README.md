@@ -2,7 +2,7 @@
 
 ## Use the Application
 
-Go to the following URL: [wwww.pururlhere.com](wwww.pururlhere.com)
+Go to the following URL: [http://46.101.76.91](http://46.101.76.91:8080/)
 
 ####  How to use Application
 
