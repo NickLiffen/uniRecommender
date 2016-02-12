@@ -3,7 +3,7 @@
 ## Use the Application
 
 Go to the following URL: [http://46.101.76.91](http://46.101.76.91:8080/)
-
+ **Currently only works in Google Chrome!!**
 ####  How to use Application
 
 -- Current there are only two routes. The Index page outputting the recommendation and /recommend which
