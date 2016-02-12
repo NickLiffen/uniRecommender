@@ -18,7 +18,7 @@ Go to the following URL: [http://46.101.76.91](http://46.101.76.91)
 
 #####  Home Page
 
-1. Allow users to enter more fields apart from university type and location. E.G predicated grades.
+1. Allow users to enter more fields apart from university type and location. E.G predicted grades.
 
 #####  Recommend Page
 
@@ -36,7 +36,7 @@ This project will also make use of es6 (es2015) features so make sure you're usi
 
 You'll need to [download and install neo4j (community edition)](http://neo4j.com/download/).
 
-Once dowloaded start the Neo4J Server.
+Once downloaded start the Neo4J Server.
 
 You will be asked to create your own username and password. Once done, change the Username and Password in the config/connection.js file.
 
