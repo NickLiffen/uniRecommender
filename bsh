@@ -1,0 +1,21 @@
+# Apperance for Terminal
+
+export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
+export CLICOLOR=1
+export LSCOLORS=ExFxBxDxCxegedabagacad
+alias ls='ls -GFh'
+
+# Shortcuts
+export PATH=mongodb/bin:$PATH^Q
+
+alias flushdns='sudo dscacheutil -flushcache'
+alias htdocs='cd /Applications/MAMP/htdocs'
+alias fyp='cd /Applications/MAMP/htdocs/dev/fyp'
+alias startinflux='influxd -config /usr/local/etc/influxdb.conf'
+export PATH="/usr/local/mysql/bin:$PATH"
+alias projectcode='cd /Applications/MAMP/htdocs/dev/MyApp'
+alias pythonserver='python -m SimpleHTTPServer 8000'
+alias startmysql='sudo /usr/local/mysql/support-files/mysql.server start'
+alias stopmysql='sudo /usr/local/mysql/support-files/mysql.server stop'
+alias restartmysql='sudo /usr/local/mysql/support-files/mysql.server restart'
+
